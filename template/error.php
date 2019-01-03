@@ -1,2 +1,2 @@
-<h1>Oops! The page is missing!</h1>
-<h2>You've entered wrong url.</h2>
+<h1>It's an Error!</h1>
+<p>something is wrong</p>
