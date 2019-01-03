@@ -65,3 +65,27 @@ if ( count($uriArray) > 2 ) {
 <p><a href="http://edelweis.test/entertainment">http://edelweis.test/entertainment</a></p>
 <p><a href="http://edelweis.test/about">http://edelweis.test/about</a></p>
 <p><a href="http://edelweis.test/contacts">http://edelweis.test/contacts</a></p>
+
+<?php
+
+
+$conn = new PDO("mysql:host=localhost;dbname=edelweis;charset=utf8", "edelweis", "qwerty");
+
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sth = $conn->prepare("SELECT * FROM `setting`");
+
+$sth->execute();
+
+$result = $sth->fetch(PDO::FETCH_ASSOC);
+
+var_dump($result);
+
+$site_name = $result["site_name"];
+
+$slogan = $result["slogan"];
+
+?>
+
+<h1><?php echo $site_name; ?></h1>
+<h2><?php echo $slogan; ?></h2>
