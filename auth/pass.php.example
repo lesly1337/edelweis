@@ -2,5 +2,6 @@
 
 <?php
 
-$login = "example";
-$pass  = "example";
+$dbname = "example";
+$login  = "example";
+$pass   = "example";
