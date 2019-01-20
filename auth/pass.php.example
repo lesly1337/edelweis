@@ -1,0 +1,6 @@
+// Create file pass.php with following data:
+
+<?php
+
+$login = "example";
+$pass  = "example";
