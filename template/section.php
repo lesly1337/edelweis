@@ -1,2 +1,2 @@
-<h1>Section <?php echo $uriArray[0]; ?></h1>
+<h1>Section <?php echo $uri_array[0]; ?></h1>
 
