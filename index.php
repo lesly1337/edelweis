@@ -60,11 +60,25 @@ if ( $uri !== "" ) {
 // 3. Analasing URI ===========================================================
 // 3.1. Define page
 
-function check_section($section) {
+function get_section_id($conn, $section) {
     $sth = $conn->prepare("SELECT `id` FROM `category` WHERE `path` = :section");
     $sth->execute( array(':section' => $section) );
     $result = $sth->fetch(PDO::FETCH_ASSOC);
     return $result ? $result['id'] : false;
+}
+
+function get_section_name($conn, $id) {
+    $sth = $conn->prepare("SELECT `name` FROM `category` WHERE `id` = :id");
+    $sth->execute( array(':id' => $id) );
+    $result = $sth->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['name'] : false;
+}
+
+function get_articles($conn, $id) {
+    $sth = $conn->prepare("SELECT `name`, `intro`, `picture` FROM `article` WHERE `category_id` = :id");
+    $sth->execute( array(':id' => $id) );
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
 }
 
 if ($uri === "") {
@@ -83,10 +97,12 @@ if ($uri === "") {
     } else {
 
         // Check if section exists in database
-        $section_exists = check_section($uri_array[0]);
+        $section_id = get_section_id($conn, $uri_array[0]);
 
-        if ($section_exists) {
+        if ($section_id) {
             // this is section
+            $section_name = get_section_name($conn, $section_id);
+            $articles = get_articles($conn, $section_id);
             require "template/section.php";
         } else {
             // this is error
@@ -101,13 +117,13 @@ if ($uri === "") {
     // this is article in the section
         
     // Check if section exists in database
-    $section_exists = check_section($uri_array[0]);
+    $section_id = get_section_id($conn, $uri_array[0]);
 
-    if ($section_exists) {
+    if ($section_id) {
 
         // Check if article exists in database
         $sth = $conn->prepare("SELECT `id` FROM `article` WHERE `id` = :id");
-        $sth->execute( array(':section' => $uri_array[0]) );
+        $sth->execute( array(':id' => $uri_array[1]) );
         $result = $sth->fetch(PDO::FETCH_ASSOC);
         $article_exists = $result ? $result['id'] : false;
 
@@ -142,37 +158,6 @@ if ($uri === "") {
 
 
 
-
-$list_of_sections = array(
-    "main",
-    "town",
-    "entertainment",
-    "hotel",
-    "contacts"
-);
-
-if ( empty($uri_array) ) {
-    require "template/main.php";
-}
-
-if ( count($uri_array) === 1 ) { 
-
-    if (array_search($uri_array[0], $list_of_sections)) {
-        if ( $uri_array[0] === "main" ) {
-            require "template/main.php";
-        } else {
-            require "template/section.php";
-        }
-    }
-}
-
-if ( count($uri_array) === 2 ) { 
-    require "template/article.php";
-}
-
-if ( count($uri_array) > 2 ) { 
-    require "template/error.php";
-}
 ?>
 
 <p><a href="http://edelweis.test/town/kerch/center">http://edelweis.test/town/kerch/center</a></p>
