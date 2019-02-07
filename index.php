@@ -75,11 +75,43 @@ function get_section_name($conn, $id) {
 }
 
 function get_articles($conn, $id) {
-    $sth = $conn->prepare("SELECT `name`, `intro`, `picture` FROM `article` WHERE `category_id` = :id");
+    $sth = $conn->prepare("SELECT `id`, `name`, `intro`, `picture` FROM `article` WHERE `category_id` = :id");
     $sth->execute( array(':id' => $id) );
     $result = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function get_category_id( $conn, $article_id ) {
+    $sth = $conn->prepare("SELECT `category_id` FROM `article` WHERE `id` = :article_id");
+    $sth->execute( array(':article_id' => $article_id) );
+    $result = $sth->fetch(PDO::FETCH_ASSOC);
+    return $result ? $result['category_id'] : false;
+}
+
+function get_article_data( $conn, $article_id ) {
+    $sth = $conn->prepare("SELECT * FROM `article` WHERE `id` = :article_id");
+    $sth->execute( array(':article_id' => $article_id) );
+    $result = $sth->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function get_site_info($conn) {
+    $sth = $conn->prepare("SELECT * FROM `setting`");
+    $sth->execute();
+    $result = $sth->fetch(PDO::FETCH_ASSOC);
+    return $result;    
+}
+
+function get_navigation($conn) {
+    $sth = $conn->prepare("SELECT `name`, `path` FROM `category`");
+    $sth->execute();
+    $result = $sth->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+$site_info    = get_site_info($conn);
+$section_name = get_section_name($conn, 1);
+$navigation   = get_navigation($conn);
 
 if ($uri === "") {
 
@@ -101,8 +133,8 @@ if ($uri === "") {
 
         if ($section_id) {
             // this is section
-            $section_name = get_section_name($conn, $section_id);
-            $articles = get_articles($conn, $section_id);
+            $articles     = get_articles($conn, $section_id);
+
             require "template/section.php";
         } else {
             // this is error
@@ -117,18 +149,17 @@ if ($uri === "") {
     // this is article in the section
         
     // Check if section exists in database
-    $section_id = get_section_id($conn, $uri_array[0]);
+    $section_id = get_section_id( $conn, $uri_array[0] );
 
     if ($section_id) {
 
         // Check if article exists in database
-        $sth = $conn->prepare("SELECT `id` FROM `article` WHERE `id` = :id");
-        $sth->execute( array(':id' => $uri_array[1]) );
-        $result = $sth->fetch(PDO::FETCH_ASSOC);
-        $article_exists = $result ? $result['id'] : false;
+        $category_id = get_category_id( $conn, $uri_array[1] );
 
-        if ( $article_exists ) {
+        if ( $section_id === $category_id ) {
             // this is article
+            $article_data = get_article_data( $conn, $uri_array[1] );
+
             require "template/article.php";
         } else {
             // this is error
@@ -155,45 +186,3 @@ if ($uri === "") {
 // 4. Get Data ================================================================
 
 // 5. Rendering template ======================================================
-
-
-
-?>
-
-<p><a href="http://edelweis.test/town/kerch/center">http://edelweis.test/town/kerch/center</a></p>
-<p><a href="http://edelweis.test/town/kerch/">http://edelweis.test/town/kerch/</a></p>
-<p><a href="http://edelweis.test/town/kerch">http://edelweis.test/town/kerch</a></p>
-<p><a href="http://edelweis.test/town/">http://edelweis.test/town/</a></p>
-<p><a href="http://edelweis.test/town">http://edelweis.test/town</a></p>
-<p><a href="http://edelweis.test/">http://edelweis.test/</a></p>
-<p><a href="http://edelweis.test">http://edelweis.test</a></p>
-
-
-<p><a href="http://edelweis.test/town">http://edelweis.test/town</a></p>
-<p><a href="http://edelweis.test/entertainment">http://edelweis.test/entertainment</a></p>
-<p><a href="http://edelweis.test/about">http://edelweis.test/about</a></p>
-<p><a href="http://edelweis.test/contacts">http://edelweis.test/contacts</a></p>
-
-<?php
-
-
-$sth = $conn->prepare("SELECT * FROM `setting`");
-
-$sth->execute();
-
-$result = $sth->fetch(PDO::FETCH_ASSOC);
-
-var_dump($result);
-
-$site_name = $result["site_name"];
-
-$slogan = $result["slogan"];
-
-
-
-
-?>
-
-<h1><?php echo $site_name; ?></h1>
-<h2><?php echo $slogan; ?></h2>
-

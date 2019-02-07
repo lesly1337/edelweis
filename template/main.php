@@ -1,1 +1,5 @@
-<h1>Main</h1>
+<?php
+
+require "parts/header.php";
+
+require "parts/footer.php";
