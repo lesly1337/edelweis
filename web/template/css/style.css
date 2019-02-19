@@ -1,0 +1,117 @@
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Montserrat', sans-serif; */
+/* GENERAL ======================================= */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* HEADER ======================================= */
+
+#header {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#header .contacts {
+    border-bottom: 1px solid #ccc;
+
+}
+
+#top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+#top-nav .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#top-nav .nav {
+    font-size: 14px;
+}
+
+#top-nav nav a {   
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #777;
+    padding: 5px 3px;
+}
+
+#top-nav nav a.active {
+    color: #000;
+}
+
+#top-nav .application {
+    
+}
+
+#top-nav .application a {
+    color: #780c0b;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #780c0b;
+    font-size: 14px;
+    padding: 12px 38px;
+}
+
+#top-nav .application a:hover,
+#top-nav .application a:active {
+    color: #000;
+    border-color: #000;
+}
+
+/* SLIDER ======================================= */
+
+#slider {
+
+}
+
+/* WELCOME ====================================== */
+
+#welcome {
+
+}
+
+/* ROOMS ======================================== */
+
+#rooms {
+
+}
+
+/* REASONS ====================================== */
+
+#reasons {
+
+}
+
+/* REWIES ======================================= */
+
+#rewies {
+
+}
+
+/* MAP ========================================== */
+
+#map {
+
+}
+
+/* ACTION ======================================= */
+
+#action {
+
+}
+
+/* FOOTER ======================================= */
+
+#footer {
+
+}
