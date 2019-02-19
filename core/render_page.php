@@ -40,4 +40,4 @@ if ($uri === "" || count($uri_array) === 1) {
     $error_type = "Page isn`t exist!";
 }
 
-require "template/" . $file_name . ".php";
+require "web/" . $file_name . ".php";
