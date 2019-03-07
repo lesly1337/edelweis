@@ -131,6 +131,87 @@ body {
     
 }
 
+/* BLOG ========================================= */
+
+#blog h1 {
+    font-size: 60px;
+    font-weight: 400;
+    margin: 60px 0 0;
+}
+
+#blog .wrapper {
+    width: 800px;
+    padding: 0 0 100px 0;
+}
+
+#blog .item {
+    border-bottom: 1px solid #ccc;
+    padding: 60px 0;
+}
+
+#blog .blog-content .item:last-child {
+    border-bottom: none;
+}
+
+#blog .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0 0 40px 0;
+}
+
+#blog .title a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.5s;
+}
+
+#blog .title a:hover,
+#blog .title a:active {
+    color: #780c0b;
+}
+
+#blog .image {  
+    border: 15px solid #f8f8f8;
+}
+
+#blog .image img {
+    width: 100%;
+    height: auto;
+}
+
+#blog .text {
+    margin: 35px 0 45px;
+}
+
+#blog .text p {
+    font-size: 18px;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    line-height: 1.72222;
+    color: #777;
+    font-weight: 300;
+}
+
+#blog .read-more {
+
+}
+
+#blog .read-more a {
+    border: 1px solid #780c0b;
+    padding: 15px 30px;
+    color: #780c0b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color, background-color 0.5s;
+}
+
+#blog .read-more a:hover,
+#blog .read-more a:active {
+    background-color: #780c0b;
+    color: #fff;
+}
+
 /* SLIDER ======================================= */
 
 #slider {
@@ -644,4 +725,38 @@ body {
 #copyright p a:hover,
 #copyright p a:active {
     text-decoration: underline;
+}
+
+
+#grey-background {
+    z-index: 10500;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+}
+
+#message {
+    margin: 250px auto;
+    width: 800px;
+    background-color: #fff;
+    padding: 50px 100px;
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    top: -42px;
+    right: -42px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
+    border: 4px solid #fff;
+    padding: 6px 0 0 0;
+    color: #fff;
+    font-weight: 900;
 }
