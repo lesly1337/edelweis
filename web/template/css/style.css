@@ -564,8 +564,84 @@ body {
 
 #footer {
     background-color: #161616;
+    color: #777;
+    font-size: 14px;
+    line-height: 1.57143;
+}
+
+#footer .wrapper {
+    display: flex;
+    padding: 120px 0;
+}
+
+#footer .left {
+    padding-right: 30px;
+}
+
+#footer .center {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#footer .right {
+    padding-left: 30px;
+}
+
+#footer .wrapper > div {
+    width: 33.33333%;
 }
 
 #footer .logo {
     color: white;
+}
+
+#footer .white {
+    color: #fff;
+}
+
+#footer h3 {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+#footer .posts p {
+    margin: 0;
+}
+
+#footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#footer li {
+    margin: 10px 0;
+}
+
+#footer i.fas {
+    margin-right: 5px;
+}
+
+#copyright {
+    background-color: black;
+    padding: 7px;
+    font-size: 14px;
+    color: #fff;    
+}
+
+#copyright p {
+    font-weight: 100;
+}
+
+#copyright p a {
+    color: #ff596d;
+    text-decoration: none;
+}
+
+#copyright p a:hover,
+#copyright p a:active {
+    text-decoration: underline;
 }
