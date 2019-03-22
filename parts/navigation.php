@@ -1,17 +1,28 @@
-<?php
+<section id="header">
+    <div class="wrapper">
 
-$l = count($navigation) - 1;
+        <div class="contacts">
+            <p>
+                <span><i class="fas fa-map-marker-alt"></i> г. <?=$site_info["town"]?>, ул. <?=$site_info["street"]?>, д. <?=$site_info["house"]?></span>
+                <span><i class="fas fa-phone fa-rotate-90"></i> <?=$site_info["phone_1"]?></span>
+            </p>
+        </div>
 
-$nav_data = "";
+        <div id="top-nav">
+            <div class="logo">
+            <?=$site_info["site_name"]?>
+            </div>
 
-for ( $i = 0; $i <= $l; $i++ ) {
+            <div class="nav">
+                <nav>
+                    <?php echo $html; ?>
+                </nav>
+            </div>
 
-    $nav_data .= "<a href=\"http://edelweis.test/" . $navigation[$i]["path"] . "/\">" . $navigation[$i]["name"] . "</a>";
+            <div class="application">
+                <a href="#" class="red-button">Забронировать</a>
+            </div>
+        </div>
 
-}
-
-?>
-
-<nav>
-    <?=$nav_data?>
-</nav>
+    </div>
+</section>

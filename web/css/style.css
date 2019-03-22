@@ -125,6 +125,7 @@ body {
 
 #top-nav nav a.active {
     color: #000;
+    border-bottom: 1px solid #000;
 }
 
 #top-nav .application {
@@ -243,6 +244,10 @@ body {
     margin: 35px 0 45px;
 }
 
+#article .intro {
+    margin-top: 40px;
+}
+
 #article .intro p {
     font-style: italic;
 }
@@ -261,7 +266,7 @@ body {
 #contacts h1 {
     font-size: 60px;
     font-weight: 400;
-    margin: 60px 0 0;
+    margin: 70px 0 30px;
     color: #161616; 
 }
 

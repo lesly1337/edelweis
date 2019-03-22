@@ -1,13 +1,29 @@
-<?php require "parts/header.php"; ?>
+<section id="article">
+    <div class="wrapper">
 
-<h1><?=$article_data["name"]?></h1>
+        <div class="article-header">
+            <h1><?php echo $article_data["name"]; ?></h1>
+        </div>
 
-<div class="intro">
-<?=$article_data["intro"]?>
-</div>
+        <div class="article-content">
 
-<div class="text">
-<?=$article_data["text"]?>
-</div>
+            <div class="item">
 
-<?php require "parts/footer.php"; ?>
+                <div class="image">
+                    <img src="<?=$domain_name?>web/pictures/<?php echo $article_data["picture"]; ?>" alt="">
+                </div>
+
+                <div class="intro">
+                    <?php echo $article_data["intro"]; ?>
+                </div>
+
+                <div class="text">
+                    <?php echo $article_data["text"]; ?>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

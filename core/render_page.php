@@ -40,4 +40,36 @@ if ($uri === "" || count($uri_array) === 1) {
     $error_type = "Page isn`t exist!";
 }
 
-require "web/" . $file_name . ".php";
+$domain_name = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on" ? "https" : "http") . "://" . $_SERVER["HTTP_HOST"] . "/";
+
+$html = "";
+
+for ( $i = 0;  $i < count($navigation); $i++ ) {
+    $html .=  "<a href=\"" . $domain_name . $navigation[$i]["path"] . "\"";
+    if ($uri_array[0] === $navigation[$i]["path"]) {
+        $html .= " class=\"active\"";
+        $section_title = $navigation[$i]["name"];
+    }
+    $html .=  ">" . $navigation[$i]["name"] . "</a>";
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php require "parts/head.php"; ?>
+</head>
+<body>
+
+<?php require "parts/navigation.php"; ?>
+
+<?php require "web/" . $file_name . ".php"; ?>
+
+<?php require "parts/footer.php"; ?>
+<?php require "parts/copyright.php"; ?>
+
+<?php require "parts/js.php"; ?>
+
+</body>
+</html>
