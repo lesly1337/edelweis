@@ -43,7 +43,7 @@ function get_site_info($conn) {
 }
 
 function get_navigation($conn) {
-    $sth = $conn->prepare("SELECT `name`, `path` FROM `category`");
+    $sth = $conn->prepare("SELECT `name`, `path` FROM `category` WHERE `id` != 0");
     $sth->execute();
     $result = $sth->fetchAll(PDO::FETCH_ASSOC);
     return $result;

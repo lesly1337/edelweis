@@ -11,7 +11,7 @@ for ( $i = 0; $i < count($articles); $i++ ) {
     $articles_data .= "    </h2>";
     
     $articles_data .= "    <div class=\"image\">";
-    $articles_data .= "        <img src=\"" . $domain_name . "web/pictures/" . $articles[$i]["picture"] . "\" alt=\"\">";
+    $articles_data .= "        <img src=\"" . $domain_name . "web/site/pictures/" . $articles[$i]["picture"] . "\" alt=\"\">";
     $articles_data .= "    </div>";
     
     $articles_data .= "    <div class=\"text\">" . $articles[$i]["intro"] . "</div>";

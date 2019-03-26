@@ -10,7 +10,7 @@
             <div class="item">
 
                 <div class="image">
-                    <img src="<?=$domain_name?>web/pictures/<?php echo $article_data["picture"]; ?>" alt="">
+                    <img src="<?=$domain_name?>web/site/pictures/<?php echo $article_data["picture"]; ?>" alt="">
                 </div>
 
                 <div class="intro">

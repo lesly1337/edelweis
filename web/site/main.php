@@ -19,7 +19,7 @@
         </div>   
 
         <div class="column">
-            <img src="<?=$domain_name?>web/pictures/hotel_1.jpg" alt="Интерьер номера отеля Эдельвейс">
+            <img src="<?=$domain_name?>web/site/pictures/hotel_1.jpg" alt="Интерьер номера отеля Эдельвейс">
         </div">
     </div>
 </section>
@@ -35,7 +35,7 @@
 
         <div class="columns">
             <div class="column">
-                <img src="<?=$domain_name?>web/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
+                <img src="<?=$domain_name?>web/site/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
                 <h3>401 Biscayne Boulevard, Miami</h3>
                 <h2>$530/month</h2>
                 <p>&middot; 3 bedrooms</p>
@@ -43,7 +43,7 @@
                 <a href="#" class="red-button">read more</a>
             </div>
             <div class="column">
-                <img src="<?=$domain_name?>web/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
+                <img src="<?=$domain_name?>web/site/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
                     <h3>225 Maywood Dr, San Francisco</h3>
                     <h2>$390/month</h2>
                     <p>&middot; 2 bedrooms</p>
@@ -52,7 +52,7 @@
             </div>
 
             <div class="column">
-                <img src="<?=$domain_name?>web/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
+                <img src="<?=$domain_name?>web/site/pictures/rooms_1.jpg" alt="Интерьер номера отеля Эдельвейс">
                 <h3>623 Willow Rd, Dallas</h3>
                 <h2>$930/month</h2>
                 <p>&middot; 5 bedrooms</p>

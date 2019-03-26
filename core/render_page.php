@@ -46,9 +46,11 @@ $html = "";
 
 for ( $i = 0;  $i < count($navigation); $i++ ) {
     $html .=  "<a href=\"" . $domain_name . $navigation[$i]["path"] . "\"";
-    if ($uri_array[0] === $navigation[$i]["path"]) {
+    if (isset($uri_array) && $uri_array[0] === $navigation[$i]["path"]) {
         $html .= " class=\"active\"";
         $section_title = $navigation[$i]["name"];
+    } elseif (!isset($uri_array) && $navigation[$i]["path"] === "main") {
+        $html .= " class=\"active\"";
     }
     $html .=  ">" . $navigation[$i]["name"] . "</a>";
 }
@@ -64,7 +66,7 @@ for ( $i = 0;  $i < count($navigation); $i++ ) {
 
 <?php require "parts/navigation.php"; ?>
 
-<?php require "web/" . $file_name . ".php"; ?>
+<?php require "web/site/" . $file_name . ".php"; ?>
 
 <?php require "parts/footer.php"; ?>
 <?php require "parts/copyright.php"; ?>
