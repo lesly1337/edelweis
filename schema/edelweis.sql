@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 22 2019 г., 13:33
+-- Время создания: Мар 28 2019 г., 14:26
 -- Версия сервера: 10.1.37-MariaDB
 -- Версия PHP: 7.3.0
 
@@ -69,6 +69,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `path`, `has_articles`) VALUES
+(0, 'Административная панель', 'admin', 0),
 (1, 'Главная', 'main', 0),
 (2, 'Наш город', 'town', 1),
 (3, 'Развлечения', 'entertainment', 1),
@@ -103,6 +104,26 @@ CREATE TABLE `setting` (
 INSERT INTO `setting` (`id`, `site_name`, `phone_1`, `phone_2`, `phone_3`, `town`, `street`, `house`, `gps`, `email_1`, `email_2`, `slogan`) VALUES
 (1, 'Эдельвейс', '+7 (978) 011-60-61', NULL, NULL, 'Керчь', '23 Мая', 180, '45.350143 36.472678', 'mail@edelweis.in.ua', NULL, 'Лучшие условия в ценре Керчи!');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user`
+--
+
+INSERT INTO `user` (`id`, `login`, `password`) VALUES
+(1, 'admin', 'qwerty'),
+(2, 'olga', 'asdfgh');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -128,6 +149,13 @@ ALTER TABLE `category`
 -- Индексы таблицы `setting`
 --
 ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_UNIQUE` (`id`);
+
+--
+-- Индексы таблицы `user`
+--
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_UNIQUE` (`id`);
 
