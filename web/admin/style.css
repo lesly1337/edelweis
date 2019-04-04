@@ -1,0 +1,11 @@
+#edit-info input[type="text"] {
+    margin: 5px 15px;
+}
+
+#edit-info table {
+    margin: 0 auto;
+}
+
+.right {
+    text-align: right;
+}
