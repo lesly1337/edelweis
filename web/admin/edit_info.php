@@ -56,26 +56,50 @@ function update_info_email_1($conn, $email_1) {
     $sth->execute(array(":email_1" => $email_1));
 }
 
+function update_info_category($conn, $name, $id) {
+    $sth = $conn->prepare("UPDATE `category` SET `name` = :name WHERE `id` = :id;");
+    $sth->execute(array(
+        ":name" => $name,
+        ":id" => $id
+    ));
+}
+
 // ==========================================================
 
+if (isset($_POST["category_1"]) && $_POST["category_1"] !== "") {
+    update_info_category($conn, $_POST["category_1"], 1);
+}
+
+if (isset($_POST["category_2"]) && $_POST["category_2"] !== "") {
+    update_info_category($conn, $_POST["category_2"], 2);
+}
+
+if (isset($_POST["category_3"]) && $_POST["category_3"] !== "") {
+    update_info_category($conn, $_POST["category_3"], 3);
+}
+
+if (isset($_POST["category_4"]) && $_POST["category_4"] !== "") {
+    update_info_category($conn, $_POST["category_4"], 4);
+}
+
+if (isset($_POST["category_5"]) && $_POST["category_5"] !== "") {
+    update_info_category($conn, $_POST["category_5"], 5);
+}
+
 if (isset($_POST["info_site_name"]) && $_POST["info_site_name"] !== "") {
-    $info_site_name = $_POST["info_site_name"];
-    update_info_site_name($conn, $info_site_name);
+    update_info_site_name($conn, $_POST["info_site_name"]);
 }
 
 if (isset($_POST["info_slogan"]) && $_POST["info_slogan"] !== "") {
-    $info_slogan = $_POST["info_slogan"];
-    update_info_slogan($conn, $info_slogan);
+    update_info_slogan($conn, $_POST["info_slogan"]);
 }
 
 if (isset($_POST["info_phone_1"]) && $_POST["info_phone_1"] !== "") {
-    $info_phone_1 = $_POST["info_phone_1"];
-    update_info_phone_1($conn, $info_phone_1);
+    update_info_phone_1($conn, $_POST["info_phone_1"]);
 }
 
 if (isset($_POST["info_email_1"]) && $_POST["info_email_1"] !== "") {
-    $info_email_1 = $_POST["info_email_1"];
-    update_info_email_1($conn, $info_email_1);
+    update_info_email_1($conn, $_POST["info_email_1"]);
 }
 
 // ============================================================
@@ -102,7 +126,7 @@ $info_categories = get_info_categories($conn);
     for ($i = 1; $i < count($info_categories); $i++) {
 
         echo "<tr>";
-        echo "<td><input type=\"text\" name=\"" . $info_categories[$i]["id"] . "\"></td>";
+        echo "<td><input type=\"text\" name=\"category_" . $info_categories[$i]["id"] . "\"></td>";
         echo "<td>" . $info_categories[$i]["name"] . "</td>";
         echo "</tr>";
 
