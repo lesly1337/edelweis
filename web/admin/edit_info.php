@@ -27,7 +27,7 @@ function get_info_email_1($conn) {
     return $result ? $result['email_1'] : false;
 }
 
-function get_info_categories($conn) {
+function get_info_categories_all($conn) {
     $sth = $conn->prepare("SELECT `id`, `name` FROM `category` ORDER BY `id`");
     $sth->execute();
     $result = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +112,7 @@ $info_phone_1    = get_info_phone_1($conn);
 
 $info_email_1    = get_info_email_1($conn);
 
-$info_categories = get_info_categories($conn);
+$info_categories = get_info_categories_all($conn);
 
 // ==========================================================
 
