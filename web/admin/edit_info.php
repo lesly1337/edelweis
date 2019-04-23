@@ -126,8 +126,7 @@ $info_categories = get_info_categories_all($conn);
     for ($i = 1; $i < count($info_categories); $i++) {
 
         echo "<tr>";
-        echo "<td><input type=\"text\" name=\"category_" . $info_categories[$i]["id"] . "\"></td>";
-        echo "<td>" . $info_categories[$i]["name"] . "</td>";
+        echo "<td><input type=\"text\" name=\"category_" . $info_categories[$i]["id"] . "\" value=\"" . $info_categories[$i]["name"] . "\"></td>";
         echo "</tr>";
 
     }
@@ -138,23 +137,19 @@ $info_categories = get_info_categories_all($conn);
     <table>
         <tr>
             <th>Имя сайта:</th>
-            <td><input type="text" name="info_site_name"></td>
-            <td><?php echo $info_site_name; ?></td>
+            <td><input type="text" name="info_site_name" value="<?php echo $info_site_name; ?>"></td>
         </tr>
         <tr>
             <th>Слоган:</th>
-            <td><input type="text" name="info_slogan"></td>
-            <td><?php echo $info_slogan; ?></td>
+            <td><input type="text" name="info_slogan" value="<?php echo $info_slogan; ?>"></td>
         </tr>
         <tr>
             <th>Телефон:</th>
-            <td><input type="text" name="info_phone_1"></td>
-            <td><?php echo $info_phone_1; ?></td>
+            <td><input type="text" name="info_phone_1" value="<?php echo $info_phone_1; ?>"></td>
         </tr>
         <tr>
             <th>Email:</th>
-            <td><input type="text" name="info_email_1"></td>
-            <td><?php echo $info_email_1; ?></td>
+            <td><input type="text" name="info_email_1" value="<?php echo $info_email_1; ?>"></td>
         </tr>
         <tr>
             <th></th>

@@ -56,9 +56,3 @@ function has_articles($conn, $section_id) {
     return $result["has_articles"];
 }
 
-function get_password($conn, $login) {
-    $sth = $conn->prepare("SELECT `password` FROM `user` WHERE `login` = :login");
-    $sth->execute(array(":login" => $login));
-    $result = $sth->fetch(PDO::FETCH_ASSOC);
-    return $result ? $result['password'] : false;
-}
